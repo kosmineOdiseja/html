@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utc-8">
+<title>labas CSS pozicionavime</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+div.blokas:: after {
+	  content: "";
+	  clear: both;
+	  display: table;
+	}
+.blokeliai {
+	float: left;
+	width: 33.33%;
+	padding: 50px;
+	}
+
+div.blokas2 {
+	position: bottom;
+	width: 1000px;
+	height: 100px;
+	border: 3px solid #3e4444;
+	}
+</style>
+</head>
+<body>
+<div class= "blokas"> cia yra Div blokas
+	<div class="blokeliai" id="bloke" style="background-color:#bbb">cia yra tekstas </div>
+	<p> cia yra  tekstas 1</p>
+	<div class="blokeliai" id="bl_k" style="background-color:#bbb"> jkhads jfah</div>
+	<p> cia yra  tekstas 2</p>
+	<div class="blokeliai"id="bl_d"style="background-color:#bbb"> kjadsjh askl;d  </div>
+	<p> cia yra tekstas 3</p>
+</div>
+<div class= "blokas2">
+
+
+</div>
+</body>
+</html> 
