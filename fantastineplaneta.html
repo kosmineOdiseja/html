@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+	<title>
+		fantastines planetos vaisius
+	</title>
+	<script>
+		function skaiciuoti () {
+		
+			var n= parseInt ( document.getElementById ( 'n' ).value );
+			var k = parseInt ( document.getElementById ( 'k' ).value );
+			var t = parseInt ( document.getElementById ( 't' ).value );
+			var m = parseInt ( document.getElementById ( 'm' ).value );
+			
+			
+			rez_str = 'ivestas seklu skaicius: ' + n + ' ivestas seklu skaicius: '  + k + '  ivestas seklu skaicius ketvirtaisiais metais: ' + t +  ' ivestas metu skaicius:  '+ m + ' <br>';
+			
+						
+			 var m = ( n + k ) + ( n + t ) + ( k + t ) ;
+			
+			rez_str = document.getElementById ( 'm' );
+			rez.innerHTML = rez_str; 
+		}
+		
+
+	</script>
+</head>
+<body>
+	seklu skaicius "n"<br>
+	<input type="text" id="n"><br>
+	seklu skaicius "k"<br>
+	<input type="text" id="k"><br>
+	seklu skaicius "t"<br>
+	<input type="text" id="t"><br>
+	
+	<input type="button" onClick="skaiciuoti" value="daryti">
+	<div id="rez">
+	</div>
+</body>
+</html>
