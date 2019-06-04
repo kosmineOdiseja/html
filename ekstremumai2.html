@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+	<title>
+		skaic. intervale
+	</title>
+	<script>
+		
+		function between ( sk, vienas,  kitas ) {
+
+			yra_tarp = 
+					( vienas<sk ) && (sk<kitas);
+					
+			alert ( sk + ' ' + vienas+  ' ' +  kitas + ' ' + yra_tarp );
+
+			return yra_tarp;
+		}
+		
+		function skaiciavimas() {
+				
+			var skaiciai = document.getElementById ( 'in_sk' ).value.split( ',' );
+			var in_pr = parseInt ( document.getElementById ('in_pr').value);
+			var in_pb = parseInt ( document.getElementById ('in_pb').value);
+			
+			
+			rez_str = 'Ivesti skaiciai: <br>';
+			
+			flag_duom_teisingi = true;
+															// --- skaičių teisingumo tikrinimas ..
+			for (  i = 0; i < skaiciai.length; i++ ) { 
+			
+				rez_str += skaiciai [ i ] + ' ';							// .. ir duomenų pateikimas rezultate										
+			
+				if ( isNaN ( skaiciai [ i ] ) ) {   						// &&
+				
+					flag_duom_teisingi = false;
+				}
+			}
+			rez_str += '<br>';
+				
+			// skaiciai = document.getElementById ( 'in_pr' ).value.split( ',' ) &&document.getElementById ( 'in_pb' ).value.split( ',' )
+			
+			if ( in_pr > in_pb ) {
+															// sukeitimas !!!!
+				tmp = in_pr;
+				in_pr = in_pb;
+				in_pb = tmp;
+			}
+															
+			if ( flag_duom_teisingi  ) {
+			
+			
+				if ( skaiciai.length < 1 ) {
+				
+					rez_str += 'skaičių turi būti ne mažiau nei 1';
+					
+				} else {
+															// realizuota paie6ka intervale 
+
+					rez_str += 'surasti skaiciai intervale: <br>';
+					
+					suma = 0;
+					kiekis = 0;
+				
+					for  (  i = 0; i < skaiciai.length; i++ )  {
+					
+						if ( 
+							 between ( parseInt ( skaiciai [ i ]) , in_pr,  in_pb )
+						) {
+						
+							rez_str += skaiciai [ i ]  + ' ';
+							
+						}  else {
+							suma +=  parseInt ( skaiciai [ i ] ) ;
+							kiekis++;
+						
+						}
+					}
+					rez_str += '<br>';					
+					
+					if ( kiekis > 0 ) {
+					
+						vid = suma / kiekis;
+						rez_str += 'likusiu skaiciu vidurkis: ' +  vid + '<br>';						
+					
+					} else {
+					
+						rez_str += 'visi skaiciai pakliuvo i intevala : <br>';					
+					} 
+															// sprendimo pabaiga
+				}
+				
+			} else {
+				
+				rez_str += 'yra nekorektiški';
+			}
+			 
+			
+			rez = document.getElementById ( 'rez' );
+			rez.innerHTML = rez_str; 
+		}
+	</script>
+</head>
+<body> 
+	skaičiai?<br>
+	Intervalo skaiciu seka: <br> <input type="text" id="in_sk"><br>
+	Intervalo skaiciu pradzia: <br> <input type="text" id="in_pr"><br>
+	Intervalo skaiciu pabaiga: <br> <input type="text" id="in_pb"><br><br>
+  <input type="button" onclick="skaiciavimas()" value="daryti">
+	<div id="rez">
+	</div>
+</body>
+</html>
