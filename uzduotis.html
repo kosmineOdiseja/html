@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+	<title>
+		3 sk. tpl.
+	</title>
+	<script>
+			function sk_ikinulio (){
+			
+			
+			}
+			
+			function velSkaiciai () {
+		
+			var skaiciai =  document.getElementById ( 'sk1' ).value.split( ',' )
+			
+			rez_str = ' Įvesti skaičiai: <br>';
+			rez_str += skaiciai.join ( ',' );
+			rez_str = ' Įvesti skaičiai patrigubinti: <br>';
+			
+			for(var i = 0; i< skaiciai.length; i++) {
+			
+				var sk3= 3 * parseInt ( skaiciai [ i ] );
+				
+				rez_str +=  sk3 + " ";
+			}	
+						
+			rez = document.getElementById ( 'rez' );
+			rez.innerHTML = rez_str;
+			
+		}
+	</script>
+</head>
+<body>
+	skaičius 1<br>
+	<input type="text" id="sk1" value="1,2,3,4,0,2,3,3,5,0,2,5,2,1,0"><br>
+	<input type= "button" onClick="velSkaiciai()" value="vykdyti">
+	<div id="rez">
+	</div>
+</body>
+</html>
